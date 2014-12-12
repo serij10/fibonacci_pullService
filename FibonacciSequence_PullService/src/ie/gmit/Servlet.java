@@ -48,7 +48,6 @@ public class Servlet extends HttpServlet {
 		response.setContentType("application/json");  // Set content type of the response so that jQuery knows what it can expect.
 		
 		if(jobNum == 0) {
-			System.out.println("in 0");
 			int jNum=FibonacciService.add(max);
 			responseArray[0] = "0";
 			responseArray[1] = String.valueOf(jNum);
@@ -61,11 +60,8 @@ public class Servlet extends HttpServlet {
 			String result = null;
 			FibonacciService client = new FibonacciService();
 			result = client.getRequest(jobNum);
-			System.out.println(result);
 			if (result !=null)
 			{
-				
-				System.out.println("in result");
 				responseArray[0] = result;
 				responseArray[1] = String.valueOf(jobNum);
 				String json = gson.toJson(responseArray);
@@ -73,7 +69,6 @@ public class Servlet extends HttpServlet {
 			}
 			else
 			{
-				System.out.println("in no result");
 				responseArray[0] = "0";
 				responseArray[1] = String.valueOf(jobNum);
 				String json = gson.toJson(responseArray);

@@ -40,7 +40,6 @@ public class Scheduler {
 		if (FibonacciService.getInQueue().isEmpty() != true) {
 			FibonacciRequest fibRequest = FibonacciService.getInQueue().get(0);
 			int i = fibRequest.getMax();
-			System.out.println(i);
 			FibonacciClient fc = new FibonacciClient();
 			try {
 				seq=fc.callRMI(i);
@@ -48,8 +47,6 @@ public class Scheduler {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			System.out.println(seq);
-			
 			FibonacciService.getInQueue().remove(0);
 			FibonacciService.getOutQueue().put(fibRequest.getJobNumber(), seq);
 		}
