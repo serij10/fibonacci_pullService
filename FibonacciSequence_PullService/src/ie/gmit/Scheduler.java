@@ -22,7 +22,7 @@ public class Scheduler {
 				}
 				
 			}
-		}, 0, 2000);
+		}, 0, 10000);
 	}
 
 	public static Scheduler getInstance() {

@@ -23,7 +23,7 @@
 										},
 										success : function(responseJson) {
 
-											$('#index').hide();
+											$('#index').fadeOut();
 											jobNum = responseJson[1];
 
 											$('#div1').html(
@@ -35,11 +35,12 @@
 											if (result != '0') {
 
 												$('#div2')
-														.html("Fibonacci Sequence: "+ responseJson[0]);
-												$('#myBtnRestart').css("visibility","visible");
+														.html("Result\n\n"+ responseJson[0]);
 												clearInterval(call);
+												$('#myBtnRestart').css("visibility","visible")
 
 											} else {
+												$('#div2').html("   ");
 												$('#div2').html("Page will refresh in 10 seconds");
 											}
 										},
@@ -74,12 +75,12 @@
 
 <body>
 	<div id="index">
-		<h2>Enter Fibonacci sequence length</h2>
-		<input type="text" id="maxNum" /> <br> <label>value
-			[1-100]</label><br>
-		<button id="myBtn" type="submit">Submit</button>
+		<h4>Enter Fibonacci Sequence Length</h4>
+		<input type="text" id="maxNum" /> <br> <label>value[1-100]</label><br>
+		<br><button id="myBtn" type="submit">Submit</button><br>
+		<br>
 	</div>
-	<a href="http://localhost:8080/FibonacciSequence_PullService/index.jsp"><button id="myBtnRestart" style="visibility: hidden">Restart</button></a>
+	<a href="http://localhost:8080/ds/"><button id="myBtnRestart" style="visibility: hidden">Return to Start</button></a>
 	<div id="div1"></div>
 	<div id="div2"></div>
 
